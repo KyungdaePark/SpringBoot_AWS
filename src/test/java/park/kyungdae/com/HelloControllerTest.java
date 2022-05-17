@@ -39,7 +39,7 @@ public class HelloControllerTest {
                         .param("name", name)
                         .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(name))) //$를 기준으로 필드명으 명시
+                .andExpect(jsonPath("$.name", is(name))) //$를 기준으로 필드명을 명시
                 .andExpect(jsonPath("$.amount", is(amount)));
     }
 }
