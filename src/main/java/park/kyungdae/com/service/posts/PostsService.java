@@ -11,6 +11,7 @@ import park.kyungdae.com.web.dto.PostsSaveRequestDto;
 import park.kyungdae.com.web.dto.PostsUpdateRequestDto;
 
 import javax.transaction.Transactional;
+// Transactional 은 전체 작업 중 하나라도 오류가 발생한다면 모든 작업을 취소한다. 보통 DB와 관련된 작업에서 사용함.
 
 @RequiredArgsConstructor
 @Service
