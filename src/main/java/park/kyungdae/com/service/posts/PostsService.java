@@ -20,6 +20,7 @@ public class PostsService {
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto){
+        System.out.println("PostService의 save메소드 실행");
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
@@ -34,6 +35,7 @@ public class PostsService {
     }
 
     public PostsResponseDto findById(Long id){
+        System.out.println("PostService의 findbyid메소드 실행");
         Posts entity = postsRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 게시글이 없습니다. id=" +id));
         return new PostsResponseDto(entity);

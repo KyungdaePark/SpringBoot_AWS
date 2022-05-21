@@ -3,15 +3,16 @@ package park.kyungdae.com.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import park.kyungdae.com.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
 @Getter // 클래스 내 모든 필드의 Getter 메소드 자동생성
 
-@NoArgsConstructor // 기본 생성자 자동 추가
+//@NoArgsConstructor // 기본 생성자 자동 추가
 @Entity // 테이블과 링크될 클래스임을 알려줌 : 'posts' 테이블을 만듬
 // @Entity 에서는 Setter 메소드를 절대 만들지 않음 (나중에 기능 바꿀때 복잡해짐)
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 테이블의 PK(Primary Key) 필드를 나타냄.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment로 pk 필드를 만들거임
@@ -25,8 +26,13 @@ public class Posts {
 
     private String author;
 
+    public Posts(){
+        System.out.println("Posts 생성자 실행 with No Args");
+
+    }
     @Builder
     public Posts(String title, String content, String author){
+        System.out.println("Post의 생성자 실행");
         this.title = title;
         this.content = content;
         this.author = author;

@@ -36,6 +36,7 @@ public class PostsApiControllerTest {
 
     @After
     public void tearDown() throws Exception{
+        System.out.println("TEARDOWN 실행");
         postsRepository.deleteAll();
     }
 
@@ -58,10 +59,11 @@ public class PostsApiControllerTest {
         //then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
-
+        System.out.println("이제 List<Posts> 실행합니다.");
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+        System.out.println("TEST 종료");
     }
 
     @Test

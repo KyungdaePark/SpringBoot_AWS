@@ -12,11 +12,13 @@ import park.kyungdae.com.domain.posts.Posts;
 @Getter
 @NoArgsConstructor
 public class PostsSaveRequestDto {
+
     private String title;
     private String content;
     private String author;
     @Builder
     public PostsSaveRequestDto(String title, String content, String author){ //생성자
+        System.out.println("PostsSaveRequestDto 실행");
         this.title = title;
         this.content = content;
         this.author = author;

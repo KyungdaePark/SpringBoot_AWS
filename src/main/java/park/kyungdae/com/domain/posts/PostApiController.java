@@ -20,8 +20,10 @@ import park.kyungdae.com.web.dto.PostsUpdateRequestDto;
 public class PostApiController {
     private final PostsService postsService;
 
+
     @PostMapping("api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto){
+        System.out.println("PostApiController의 save메소드 실행");
         return postsService.save(requestDto);
         // PostsSaveRequestDto는 title, content, author 내용을 담고있다.
     }
@@ -36,7 +38,7 @@ public class PostApiController {
     public PostsResponseDto findById(@PathVariable Long id) {
         // PostsResponseDto는 title, cotent, author, "id"를 담고있다.
         // PostsResponseDto는 title, content, author, id를 얻기 위해서 Posts클래스의 db에 직접 접근한다.
-
+        System.out.println("PostApiController의 findbyid메소드 실행");
         return postsService.findById(id);
     }
 
