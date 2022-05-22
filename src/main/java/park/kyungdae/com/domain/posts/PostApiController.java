@@ -18,7 +18,7 @@ import park.kyungdae.com.web.dto.PostsUpdateRequestDto;
 @RequiredArgsConstructor
 @RestController
 public class PostApiController {
-    private final PostsService postsService;
+        private final PostsService postsService;
 
 
     @PostMapping("api/v1/posts")

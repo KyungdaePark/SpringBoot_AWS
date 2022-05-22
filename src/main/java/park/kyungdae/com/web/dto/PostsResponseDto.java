@@ -14,19 +14,19 @@ public class PostsResponseDto {
     private String author;
 
     private String createdDate;
-    public PostsResponseDto(Posts entity){
-        System.out.println("PostsResponeDto의 생성자 실행");
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.content = entity.getContent();
-        this.author = entity.getAuthor();
-    }
-//public PostsResponseDto(Posts entity){
-//    System.out.println("PostsResponeDto_with createdDate의 생성자 실행");
-//    this.id = entity.getId();
-//    this.title = entity.getTitle();
-//    this.content = entity.getContent();
-//    this.author = entity.getAuthor();
-//    this.createdDate = String.valueOf(entity.getCreatedDate());
-//}
+//    public PostsResponseDto(Posts entity){
+//        System.out.println("PostsResponeDto의 생성자 실행");
+//        this.id = entity.getId();
+//        this.title = entity.getTitle();
+//        this.content = entity.getContent();
+//        this.author = entity.getAuthor();
+//    }
+public PostsResponseDto(Posts entity){
+    System.out.println("PostsResponeDto_with createdDate의 생성자 실행");
+    this.id = entity.getId();
+    this.title = entity.getTitle();
+    this.content = entity.getContent();
+    this.author = entity.getAuthor();
+    this.createdDate = String.valueOf(entity.getCreatedDate());
+}
 }
