@@ -6,7 +6,7 @@
 // 3. postsService, 즉 서비스 클래스에 넘겨준다.
 // 4. 이때 save/update/findbyid 메서드들은 각각의 기능에 맞는 형식으로 만들어진 Dto를 사용한다.
 
-package park.kyungdae.com.domain.posts;
+package park.kyungdae.com.web;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
