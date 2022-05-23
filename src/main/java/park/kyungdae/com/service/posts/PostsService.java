@@ -6,11 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import park.kyungdae.com.domain.posts.Posts;
 import park.kyungdae.com.domain.posts.PostsRepository;
+import park.kyungdae.com.web.dto.PostsListResponseDto;
 import park.kyungdae.com.web.dto.PostsResponseDto;
 import park.kyungdae.com.web.dto.PostsSaveRequestDto;
 import park.kyungdae.com.web.dto.PostsUpdateRequestDto;
-
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.springframework.transaction.annotation.Transactional;
 // Transactional 은 전체 작업 중 하나라도 오류가 발생한다면 모든 작업을 취소한다. 보통 DB와 관련된 작업에서 사용함.
 
 @RequiredArgsConstructor
@@ -40,4 +42,13 @@ public class PostsService {
                 () -> new IllegalArgumentException("해당 게시글이 없습니다. id=" +id));
         return new PostsResponseDto(entity);
     }
+
+    @Transactional(readOnly = true) // 트랜잭션 범위는 유지, 조회기능만 있어서 조회 속도가 개선됨 -> 등록,수정,삭제 기능이 없는 서비스 메소드에서 사용하면 좋음
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)//.map(posts->new PostsListResponseDto(posts))와 같은 기능, postsRepository 결과로 넘어온 Posts의 Stream을
+                                               // map을 통해 PostsListResponseDto 변환 -> List로 반환하는 메소드
+                .collect(Collectors.toList());
+    }
+
 }
