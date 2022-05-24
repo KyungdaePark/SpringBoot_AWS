@@ -42,6 +42,12 @@ public class PostApiController {
         return postsService.findById(id);
     }
 
+    @DeleteMapping("api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
+    }
+
     // Application.java -> PostApiController 內 Post/Put/Get Mapping
     // 가져온 정보로 Service에서 실행
 }
