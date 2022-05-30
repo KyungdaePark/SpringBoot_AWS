@@ -30,5 +30,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa') //스프링 부트용 Spring Data Jpa 추상화 라이브러리임
     compile('com.h2database:h2') // 테스트 용도의 관계형 데이터베이스
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

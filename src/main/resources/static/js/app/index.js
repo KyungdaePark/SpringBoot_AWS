@@ -1,4 +1,3 @@
-//등록 버튼을 위한 js
 var main={
     init : function() { // var init = function() {...} 로 선언하지 않고 var main 안에 index라는 변수의 속성으로 function을 만듬
         // index객체 안에서만 function이 유효하게 만들어 다른 JS와 겹치지 않게 함.
